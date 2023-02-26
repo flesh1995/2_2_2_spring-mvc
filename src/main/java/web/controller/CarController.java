@@ -17,10 +17,10 @@ public class CarController {
         this.carServiceImpl = carServiceImpl;
     }
 
-    @GetMapping("/cars")
-    public String getCars(@RequestParam("count") int count, Model model) {
+    @GetMapping(value = "/cars")
+    public String getCars(@RequestParam(value = "count", defaultValue = "5") int count, Model model) {
 
-        model.addAttribute("car", carServiceImpl.carShow(count));
+        model.addAttribute("cars", carServiceImpl.carShow(count));
         return "car/cars";
     }
 }
